@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>큐</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body data-page-id="queue">
+
+<header class="header">
+    <div class="header-inner">
+        <div class="breadcrumb"></div>
+        <h1 class="page-title">큐</h1>
+    </div>
+</header>
+
+<main class="content">
+
+    <!-- 목차 -->
+    <section class="toc">
+        <h2>목차</h2>
+        <ul>
+            <li>
+                <a href="#definition">
+                    1. 큐 <span class="toc-subtitle">Queue</span>
+                </a>
+            </li>
+            <li><a href="#implementation">2. 구현 방식</a></li>
+            <li><a href="#pros-cons">3. 장단점</a></li>
+            <li><a href="#types">4. 종류</a></li>
+            <li><a href="#code">5. 구현 코드 및 연산 설명</a></li>
+            <li><a href="#caution">6. 주의점</a></li>
+            <li><a href="#experience">체험존</a></li>
+        </ul>
+    </section>
+
+    <!-- 1. 큐 정의 -->
+    <section id="definition">
+        <h2 class="section-title">
+            큐<span class="section-subtitle">Queue</span>
+        </h2>
+
+        <p>
+            큐(Queue)는 데이터를 <strong>먼저 들어온 순서대로</strong> 처리하는 선형 자료구조입니다.
+            <strong>FIFO(First In, First Out)</strong> 구조를 가지며, 
+            삽입은 <strong>rear</strong>에서, 삭제는 <strong>front</strong>에서 이루어집니다.
+        </p>
+
+        <p>
+            배열이나 연결 리스트 기반으로 구현되며, 각 요소는 다음 노드/인덱스를 가리키는 <strong>포인터</strong>로 연결될 수 있습니다.
+        </p>
+    </section>
+
+    <!-- 2. 구현 방식 -->
+    <section id="implementation">
+        <h2>구현 방식</h2>
+
+        <ul>
+            <li><strong>배열 기반 큐</strong> : front, rear 인덱스를 사용하여 구현</li>
+            <li><strong>연결 리스트 기반 큐</strong> : 노드와 포인터로 front → rear 연결</li>
+        </ul>
+    </section>
+
+    <!-- 3. 장단점 -->
+    <section id="pros-cons">
+        <h2>장단점</h2>
+
+        <div class="two-column">
+            <div>
+                <h3>장점</h3>
+                <ul>
+                    <li>데이터가 들어온 순서를 보장</li>
+                    <li>삽입/삭제 연산이 큐 끝에서 효율적</li>
+                    <li>연결 리스트 기반이라면 크기 제한 없음</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>단점</h3>
+                <ul>
+                    <li>중간 위치 접근 불가 → 순차 탐색 필요</li>
+                    <li>배열 기반 큐는 고정 크기 시 overflow 발생 가능</li>
+                    <li>포인터 사용으로 메모리 추가 소요</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 종류 -->
+    <section id="types">
+        <h2>큐의 종류</h2>
+
+        <ul>
+            <li><strong>선형 큐(Linear Queue)</strong> : 일반적인 FIFO 큐</li>
+            <li><strong>원형 큐(Circular Queue)</strong> : 배열 끝과 시작을 연결하여 공간 효율화</li>
+            <li><strong>우선순위 큐(Priority Queue)</strong> : 우선순위에 따라 요소를 처리</li>
+            <li><strong>덱(Deque)</strong> : 양쪽(front/rear)에서 삽입/삭제 가능</li>
+        </ul>
+    </section>
+
+    <!-- 5. 구현 코드 및 연산 설명 -->
+    <section id="code">
+        <h2>구현 코드 및 연산 설명 (Python)</h2>
+
+        <pre><code class="language-python">
+class Queue:
+    def __init__(self):
+        self.data = []
+
+    def enqueue(self, value):
+        self.data.append(value)  # rear에서 추가
+
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("Queue is empty")
+        return self.data.pop(0)  # front에서 제거
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("Queue is empty")
+        return self.data[0]
+
+    def is_empty(self):
+        return len(self.data) == 0
+        </code></pre>
+
+        <p>
+            enqueue : rear에 데이터 추가 → O(1) (연결 리스트), O(1)~O(n) (배열 기반, shift 필요 시)<br>
+            dequeue : front에서 데이터 제거 → O(1) (연결 리스트), O(n) (배열 기반)<br>
+            peek : front 데이터 확인 → O(1)
+        </p>
+    </section>
+
+    <!-- 6. 주의점 -->
+    <section id="caution">
+        <h2>큐 사용 시 주의점</h2>
+        <ul>
+            <li>비어 있는 큐에서 dequeue 수행 시 오류 발생</li>
+            <li>배열 기반 큐에서 overflow 발생 가능</li>
+            <li>원형 큐 구현 시 front/rear 포인터 관리 주의</li>
+        </ul>
+    </section>
+
+    <!-- 체험존 -->
+    <section id="experience">
+        <h2>체험존</h2>
+        <p style="color:#6b7280; font-size:0.9rem">
+            큐의 동작을 직접 체험할 수 있는 영역입니다. (구현 예정)
+        </p>
+        <div class="queue-container"></div>
+    </section>
+
+</main>
+
+<script src="../assets/js/siteTree.js"></script>
+<script src="../assets/js/breadcrumb.js"></script>
+<script>
+    const pageId = document.body.dataset.pageId;
+    renderBreadcrumb(pageId);
+</script>
+
+</body>
+</html>

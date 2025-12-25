@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>퀴즈</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header class="header quiz-header">
+        <div class="header-inner">
+            <div class="breadcrumb">
+                <a href="../index.html">체험</a>
+                <span>›</span>
+                <strong>퀴즈</strong>
+            </div>
+
+            <h1 class="page-title">퀴즈!</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section quiz-select">
+            <h2>어떤 퀴즈를 풀어볼까요?</h2>
+
+            <div class="grid">
+                <a class="card quiz-card" href="all.html">
+                    <strong>전체 퀴즈</strong>
+                    <p>모든 자료구조 종합</p>
+                </a>
+
+                <a class="card quiz-card" href="linear.html">
+                    <strong>선형 구조</strong>
+                    <p>배열· 연결 리스트 · 스택 · 큐</p>
+                </a>
+
+                <a class="card quiz-card" href="nonlinear.html">
+                    <strong>비선형 구조</strong>
+                    <p>트리 · 그래프</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section quiz-guide">
+            <h2>퀴즈 구성 안내</h2>
+
+            <div class="quiz-guide-grid">
+
+                <!-- 단순 개념 확인 -->
+                <div class="quiz-guide-card">
+                    <h3>단순 개념 확인</h3>
+                    <p class="quiz-type">객관식 / 주관식</p>
+                    <p class="example-q">
+                        Q. 검색어를 입력할 때, 입력한 접두사를 기반으로
+                        자동 완성 기능을 구현하기에 가장 적절한 자료구조는?
+                    </p>
+                    <p class="example-a">✔ 정답 예시: <strong>트라이</strong></p>
+                </div>
+
+                <!-- 상황 기반 문제 -->
+                <div class="quiz-guide-card">
+                    <h3>상황 기반 문제</h3>
+                    <p class="quiz-type">객관식</p>
+                    <p class="example-q">
+                        Q. 웹 브라우저에서 ‘뒤로 가기’ 기능을 구현하려 할 때
+                        가장 적절한 자료구조는?
+                    </p>
+                    <p class="example-a">✔ 정답 예시: <strong>스택</strong></p>
+                </div>
+
+                <!-- 비교 문제 -->
+                <div class="quiz-guide-card">
+                    <h3>비교 문제</h3>
+                    <p class="quiz-type">객관식</p>
+                    <p class="example-q">
+                        Q. 웹사이트의 페이지 구조를 계층적으로 표현하고,
+                        상위–하위 관계를 명확히 나타내기에 가장 적절한 자료구조는?
+                    </p>
+                    <p class="example-a">✔ 정답 예시: <strong>트리</strong></p>
+                </div>
+
+                <!-- O / X 문제 -->
+                <div class="quiz-guide-card">
+                    <h3>O / X 문제</h3>
+                    <p class="quiz-type">개념 확인</p>
+                    <p class="example-q">
+                        Q. 틀린 문제를 먼저 틀린 순서대로 다시 풀도록 관리하려면
+                        큐(Queue)를 사용하는 것이 적절하다. (O / X)
+                    </p>
+                    <p class="example-a">✔ 정답 예시: <strong>O</strong> (큐)</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

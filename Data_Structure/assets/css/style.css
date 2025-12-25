@@ -1,0 +1,754 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+header {
+    background: #1f2933;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.header {
+  background: #1f2933;
+  padding: 24px 20px;
+}
+
+.breadcrumb {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb a {
+  color: #9ca3af; /* 옅은 회색 */
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #9ca3af;
+}
+
+.breadcrumb strong {
+  color: #ffffff; /* 현재 페이지 */
+  font-weight: 600;
+}
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin-top: 40px;
+    color: #1f2933;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    text-decoration: none;
+    color: #111827;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.image-box {
+    height: 120px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+#experience {
+    margin-bottom: 120px; /* 아래 여백 */
+}
+
+#experience {
+    padding-bottom: 80px;
+}
+
+/* ===============================
+   선형 구조 카드 그리드
+   =============================== */
+
+.linear-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+
+.array {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.linked {
+  grid-column: 4 / 6;
+  grid-row: 1;
+}
+
+.stack {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+.queue {
+  grid-column: 4 / 6;
+  grid-row: 2;
+}
+
+
+/* ===============================
+   Intro Section (설명 영역)
+   =============================== */
+
+.intro {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.intro h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.intro h2 span {
+  font-size: 18px;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+.intro p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #374151;
+  max-width: 800px;
+}
+
+.intro h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #1f2933;
+}
+
+/* ===============================
+   array
+   =============================== */
+
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #2563eb;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.structure-img {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+pre {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.complexity {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.complexity th,
+.complexity td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#array-view {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.buttons button {
+    margin-right: 6px;
+}
+
+/* 섹션 제목 */
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 1.0rem;
+    font-weight: 400;
+    color: #6b7280;
+    margin-left: 8px;
+}
+
+/* 목차용 작은 영문 */
+.toc-subtitle {
+    font-size: 0.85em;
+    color: #2563eb;
+}
+
+/* 체험존 전체 */
+#experience {
+    text-align: center;
+}
+
+/* 배열 표시 */
+#array-view {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    padding: 12px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* 입력 칸 */
+#inputValue {
+    width: 160px;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 20px;
+}
+
+/* 버튼 묶음 */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* 버튼 공통 */
+.buttons button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* hover 효과 */
+.buttons button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* 결과 텍스트 */
+#result {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #374151;
+}
+
+#array-view {
+    display: block;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-family: monospace;
+}
+
+/* 배열 전체 컨테이너 */
+.array-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 각 칸 + 인덱스를 감싸는 래퍼 */
+.array-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 배열 칸 */
+.array-cell {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background: #f8fafc;
+    color: #1f2937;
+}
+
+/* 값이 있는 칸 */
+.array-cell.filled {
+    background: #dbeafe;
+    border-color: #2563eb;
+}
+
+/* 빈 칸 */
+.array-cell.empty {
+    background: #f1f5f9;
+    color: transparent;   /* 값은 없지만 박스는 보이게 */
+}
+
+/* 인덱스 표시 */
+.array-index {
+    margin-top: 4px;
+    font-size: 0.7rem;
+    color: #6b7280;
+}
+
+/* 배열 체험존 레이아웃 보정 (디자인 유지) */
+#array-view {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+#array-view > .array-item {
+    width: auto;          /* 전역 width:100% 무효화 */
+    flex: 0 0 auto;       /* 한 줄에서 고정 */
+}
+
+.stack-image-row {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0 30px;
+    justify-content: center;
+}
+
+.stack-image-row img {
+    width: 30%;
+    max-width: 240px;
+    border-radius: 8px;
+}
+
+/* 비선형 구조 페이지 전용 grid */
+body[data-page-id="nonlinear"] .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 4칸 */
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* 카드들을 가운데 2칸(2~3번 컬럼)에 배치 */
+body[data-page-id="nonlinear"] .card {
+    grid-column: span 1;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 첫 번째 카드 → 2번 칸 */
+body[data-page-id="nonlinear"] .card:nth-child(1) {
+    grid-column: 2 / 4;
+}
+
+/* 두 번째 카드 → 3번 칸 */
+body[data-page-id="nonlinear"] .card:nth-child(2) {
+    grid-column: 4 / 6;
+}
+
+/* 이미지 영역 */
+body[data-page-id="nonlinear"] .image-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* 제목 */
+body[data-page-id="nonlinear"] .card strong {
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+#trieSvg {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+/* header 기준 */
+/* 메인 페이지 전용 header */
+.main-header {
+    position: relative;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* 검색 박스 */
+.search-box {
+    position: absolute;
+    top: 20px;        /* 제목보다 약간 위 */
+    right: 40px;
+    width: 220px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+}
+
+/* 드롭다운 */
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: white;
+    border: 1px solid #ddd;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: none;
+    z-index: 9999;
+}
+
+#search-results li {
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #111;          /* 🔥 글자 안 보이던 문제 해결 */
+}
+
+#search-results li:hover {
+    background: #f1f5f9;
+}
+
+/* 퀴즈 섹션 중앙 정렬 */
+.section:last-of-type .grid {
+    display: flex;
+    justify-content: center;
+}
+
+/* 퀴즈 카드 크기 조절 */
+.section:last-of-type .card {
+    width: 220px;          /* 기존보다 약간 작게 */
+    padding: 18px 16px;    /* 내부 여백 축소 */
+    text-align: center;
+}
+
+/* =========================
+   퀴즈 페이지 전용 스타일
+========================= */
+
+/* 헤더 배경 주황 톤 */
+.quiz-header {
+    background: linear-gradient(135deg, #ff8a3d, #ffb26b);
+}
+
+/* 퀴즈 선택 섹션 */
+.quiz-select h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d35400;
+}
+
+/* 퀴즈 카드 */
+.quiz-card {
+    width: 240px;
+    text-align: center;
+    padding: 22px 18px;
+    border: 2px solid #ffd2a6;
+    background: #fffaf5;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quiz-card strong {
+    font-size: 1.1rem;
+    color: #e67e22;
+}
+
+.quiz-card p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* hover 효과 */
+.quiz-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(255, 138, 61, 0.25);
+}
+
+/* =========================
+   퀴즈 구성 안내 섹션
+========================= */
+
+.quiz-guide {
+    margin-top: 60px;
+}
+
+.quiz-guide h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #d35400;
+}
+
+/* 카드 그리드 */
+/* 카드 그리드 (2x2 고정 배치) */
+.quiz-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 안내 카드 */
+.quiz-guide-card {
+    background: #fffaf5;
+    border: 2px solid #ffd2a6;
+    border-radius: 14px;
+    padding: 22px 20px;
+}
+
+.quiz-guide-card h3 {
+    margin-bottom: 6px;
+    color: #e67e22;
+}
+
+.quiz-type {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 12px;
+}
+
+.example-q {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.example-a {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #d35400;
+}
+
+/* =========================
+   퀴즈 공통 UI
+========================= */
+
+.quiz-box {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 문제 텍스트 */
+#question-text {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 선택지 버튼 */
+.choices {
+    display: grid;
+    gap: 14px;
+}
+
+.choice-btn {
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid #ffd2a6;
+    background: #fffaf5;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.choice-btn:hover {
+    background: #ffe4c7;
+}
+
+/* 주관식 */
+.subjective {
+    display: flex;
+    gap: 10px;
+}
+
+.subjective input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ffd2a6;
+    font-size: 1rem;
+}
+
+.subjective button {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    background: #ff8a3d;
+    color: white;
+    cursor: pointer;
+}
+
+/* 해설 */
+.explanation {
+    max-width: 700px;
+    margin: 40px auto 0;
+    background: #fffaf5;
+    border-left: 6px solid #ff8a3d;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+#next-btn {
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #ff8a3d;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 숨김 */
+.hidden {
+    display: none;
+}
+
+/* 결과 창 전용 스타일 */
+.result-screen {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fffaf5;
+    border-radius: 20px;
+    border: 2px solid #ffd2a6;
+}
+
+.result-screen h2 {
+    font-size: 2rem;
+    color: #ff8a3d;
+    margin-bottom: 10px;
+}
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/* 기존 choice-btn 스타일을 결과 버튼에도 적용 */
+.btn-retry, .btn-home {
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid #ffd2a6;
+    background: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.btn-retry {
+    color: #ff8a3d;
+}
+
+.btn-home {
+    background: #ff8a3d;
+    color: white;
+    border: none;
+}
+
+.btn-retry:hover { background: #ffe4c7; }
+.btn-home:hover { background: #e6762e; }
+
+/* 진행도 표시 */
+#progress {
+    font-weight: bold;
+    color: #ff8a3d;
+    font-size: 1.1rem;
+}
+
+.choice-btn:disabled, #submit-subjective:disabled {
+    background: #f0f0f0;
+    border-color: #ddd;
+    color: #999;
+}
