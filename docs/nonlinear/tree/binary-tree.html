@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>이진 트리 (Binary Tree)</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body data-page-id="binary-tree">
+
+<header class="header">
+    <div class="header-inner">
+        <div class="breadcrumb"></div>
+        <h1 class="page-title">이진 트리</h1>
+    </div>
+</header>
+
+<main class="content">
+    <section class="toc">
+        <h2>목차</h2>
+        <ul>
+            <li><a href="#definition">1. 이진 트리의 정의</a></li>
+            <li><a href="#bst">2. 이진 탐색 트리 (BST)</a></li>
+            <li><a href="#traversal">3. 이진 트리 순회</a></li>
+            <li><a href="#code">4. BST 구현 코드</a></li>
+            <li><a href="#b-tree">5. B-트리 (B-Tree)</a></li>
+        </ul>
+    </section>
+
+    <section id="definition">
+        <h2 class="section-title">이진 트리의 정의</h2>
+        <p>모든 노드의 <strong>자식 노드가 최대 2개</strong>(왼쪽, 오른쪽)인 트리 구조입니다.</p>
+        <ul>
+            <li><strong>정 이진 트리:</strong> 모든 노드가 0개 또는 2개의 자식을 가짐</li>
+            <li><strong>완전 이진 트리:</strong> 마지막 레벨을 제외하고 모든 노드가 채워져 있음</li>
+            <li><strong>포화 이진 트리:</strong> 모든 레벨이 노드로 꽉 차 있는 상태</li>
+        </ul>
+    </section>
+
+    <section id="bst">
+        <h2>이진 탐색 트리 (BST)</h2>
+        <p>탐색 효율을 극대화한 이진 트리로, 다음 규칙을 따릅니다.</p>
+        <blockquote>
+            <strong>왼쪽 자식 노드 < 부모 노드 < 오른쪽 자식 노드</strong>
+        </blockquote>
+        <img src="../../assets/images/bst-example.png" alt="BST 구조" class="structure-img">
+    </section>
+
+    <section id="traversal">
+        <h2>이진 트리 순회법</h2>
+        <p>BST에서 <strong>중위 순회(In-order)</strong>를 수행하면 데이터를 <strong>오름차순</strong>으로 얻을 수 있습니다.</p>
+        <ul>
+            <li><strong>전위(Pre-order):</strong> Root → L → R</li>
+            <li><strong>중위(In-order):</strong> L → Root → R</li>
+            <li><strong>후위(Post-order):</strong> L → R → Root</li>
+        </ul>
+    </section>
+
+    <section id="code">
+        <h2>BST 탐색/삽입 (Python)</h2>
+        <pre><code class="language-python">
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+def insert(root, key):
+    if root is None:
+        return Node(key)
+    if key < root.val:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+    return root
+
+def search(root, key):
+    if root is None or root.val == key:
+        return root
+    if root.val < key:
+        return search(root.right, key)
+    return search(root.left, key)
+        </code></pre>
+        <p>평균 시간 복잡도: <strong>O(log n)</strong> / 최악(편향 트리): <strong>O(n)</strong></p>
+    </section>
+
+    <section id="b-tree">
+        <h2>B-트리 (B-Tree)</h2>
+        <p>이진 트리를 확장하여 <strong>하나의 노드가 여러 개의 자식</strong>을 가질 수 있는 균형 트리입니다.</p>
+        <ul>
+            <li>데이터베이스와 파일 시스템에서 대용량 데이터 저장 시 주로 사용됩니다.</li>
+            <li>모든 리프 노드가 같은 레벨에 있어 항상 일정한 탐색 성능을 보장합니다.</li>
+        </ul>
+    </section>
+</main>
+
+<script src="../../assets/js/siteTree.js"></script>
+<script src="../../assets/js/breadcrumb.js"></script>
+<script>
+    renderBreadcrumb("binary-tree");
+</script>
+</body>
+</html>
