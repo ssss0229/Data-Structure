@@ -1,22 +1,3 @@
-function findPath(node, targetId, path = []) {
-  if (!node) return null;
-
-  const newPath = [...path, node];
-
-  if (node.id === targetId) {
-    return newPath;
-  }
-
-  if (node.children) {
-    for (const child of node.children) {
-      const result = findPath(child, targetId, newPath);
-      if (result) return result;
-    }
-  }
-
-  return null;
-}
-
 function renderBreadcrumb(targetId) {
   const breadcrumbEl = document.querySelector(".breadcrumb");
   if (!breadcrumbEl) return;
@@ -26,10 +7,19 @@ function renderBreadcrumb(targetId) {
 
   breadcrumbEl.innerHTML = "";
 
+  // 1. 현재 페이지의 깊이(Depth) 계산
+  // 예: linear/stack.html 에 있다면 깊이는 1 (../ 한 번 필요)
+  // 예: nonlinear/tree/binary-tree.html 에 있다면 깊이는 2 (../../ 두 번 필요)
+  const currentPath = window.location.pathname;
+  // GitHub Pages 저장소 이름(Data_Structure) 이후의 경로만 추출
+  const pathAfterRepo = currentPath.split("Data_Structure/")[1] || "";
+  const depth = (pathAfterRepo.match(/\//g) || []).length;
+  const prefix = "../".repeat(depth);
+
   path.forEach((node, index) => {
     if (index > 0) {
       const sep = document.createElement("span");
-      sep.textContent = "›";
+      sep.textContent = " › ";
       breadcrumbEl.appendChild(sep);
     }
 
@@ -39,7 +29,11 @@ function renderBreadcrumb(targetId) {
       breadcrumbEl.appendChild(strong);
     } else {
       const a = document.createElement("a");
-      a.href = node.url;
+      
+      // 2. 경로 앞에 계산된 prefix(../)를 붙여줍니다.
+      // 단, 루트(index.html)로 갈 때는 prefix만으로도 충분하거나 prefix + url 구조가 되어야 합니다.
+      a.href = prefix + node.url;
+      
       a.textContent = node.title;
       breadcrumbEl.appendChild(a);
     }
