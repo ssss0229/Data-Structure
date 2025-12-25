@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>배열</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</head>
+
+<body data-page-id="array">
+
+<header class="header">
+    <div class="header-inner">
+        <div class="breadcrumb"></div>
+        <h1 class="page-title">배열</h1>
+    </div>
+</header>
+
+<main class="content">
+
+    <!-- 목차 -->
+    <section class="toc">
+        <h2>목차</h2>
+        <ul>
+            <li>
+                <a href="#definition">
+                1. 배열 <span class="toc-subtitle">Array</span>
+                </a>
+            </li>
+            <li><a href="#structure">2. 배열의 구조</a></li>
+            <li><a href="#pros-cons">3. 배열의 장단점</a></li>
+            <li><a href="#code">4. 예시 구현 코드</a></li>
+            <li><a href="#experience">5. 체험존</a></li>
+        </ul>
+    </section>
+
+    <!-- 배열 정의 -->
+    <section id="definition">
+        <h2 class="section-title">
+            배열<span class="section-subtitle">Array</span>
+        </h2>
+
+
+        <p>
+            배열은 여러 개의 데이터를 <strong>하나의 묶음</strong>으로 관리하기 위한
+            선형 자료구조로, 동일한 자료형의 데이터를
+            <strong>연속된 메모리 공간</strong>에 저장하는 것이 특징입니다.
+        </p>
+
+        <p>
+            각 데이터는 <strong>인덱스(index)</strong>라는 번호를 통해 접근할 수 있으며,
+            인덱스는 일반적으로 0부터 시작합니다.
+        </p>
+
+        <ul>
+            <li><strong>동일한 자료형</strong>의 데이터만 저장 가능</li>
+            <li><strong>연속된 메모리 공간</strong>에 저장됨</li>
+            <li><strong>인덱스</strong>를 이용해 빠르게 접근 가능</li>
+            <li>생성 시 <strong>크기를 지정</strong>해줘야 함</li>
+        </ul>
+    </section>
+
+
+    <!-- 배열 구조 -->
+    <section id="structure">
+        <h2>배열의 구조</h2>
+
+        <p>
+            배열은 메모리 상에서 각 요소가 <strong>빈틈없이 연속적으로</strong> 저장됩니다.
+        </p>
+
+        <p>
+            따라서 배열은 처음 생성할 때 <stong>크기를 지정해</stong> 주어 일정 공간을 확보해 놓을 수 있도록 해주어야 합니다.
+        </p>
+
+        <p>
+            하지만 이러한 구조 덕분에 배열의 시작 주소만 알고 있다면,
+            원하는 요소의 위치를 즉시 계산해 접근할 수 있습니다.
+        </p>
+
+        <img src="../assets/images/array-structure.png"
+            alt="배열 메모리 구조"
+            class="structure-img">
+
+        <p>
+            배열의 시작 주소를 <strong>start</strong>, 
+            각 요소의 크기를 <strong>size</strong>라고 한다면, 
+            인덱스 <strong>i</strong>에 있는 값의 주소는<br>
+            <strong>start + i × size</strong>을 통해 계산할 수 있습니다.
+        </p>
+        
+        <p>
+            예시 : 1000에서 시작한 배열의 각 요소 크기가 4바이트 라면 인덱스 3에 존재하는 값의 주소는<br>
+            <strong>1000 + 3 × 4 = '1012'</strong> 이라는 것을 알 수 있습니다.
+        </p>
+
+        <p>
+            이렇듯 배열은 인덱스 접근을 할 때 한 번의 계산으로 위치를 찾는 것이 가능하여
+            항상 <strong>O(1)</strong>의 시간 복잡도를 가집니다.
+        </p>
+    </section>
+
+    <!-- 장단점 -->
+    <section id="pros-cons">
+        <h2>배열의 장단점</h2>
+
+        <div class="two-column">
+            <div>
+                <h3>장점</h3>
+                <ul>
+                    <li>
+                        인덱스를 이용한 빠른 접근<br>
+                        → 원하는 위치의 값을 즉시 조회 가능 (O(1))
+                    </li>
+                    <li>
+                        구조가 단순하여 구현과 이해가 쉬움
+                    </li>
+                    <li>
+                        캐시 효율이 좋아 실제 실행 속도가 빠름
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>단점</h3>
+                <ul>
+                    <li>
+                        배열의 크기가 고정되어 있어
+                        동적으로 크기 변경이 어려움
+                    </li>
+                    <li>
+                        중간에 요소를 삽입하거나 삭제할 경우
+                        뒤의 모든 요소를 이동해야 함
+                    </li>
+                    <li>
+                        삽입 / 삭제 연산의 시간 복잡도가 큼 (O(n))
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 코드 -->
+    <section id="code">
+    
+        <h2>예시 구현 코드 (Python)</h2>
+
+        <p>
+            파이썬은 list라는 자료형이 존재해 대부분의 경우 이를 이용합니다.<br>
+            다만, 대규모의 수치 연산이나 인공지능/과학 분야에서는 효율성을 위해 NumPy 모듈의 배열을 이용합니다.<br><br>
+            따라서 파이썬에서 배열을 구현하는 일은 거의 없지만, 그럼에도 배열을 파이썬에서 구현해본다면 자료의 구조는 다음과 같을 것입니다.
+        </p>
+
+        <pre><code class="language-python">
+class Array:
+    def __init__(self, size):
+        self.size = size
+        self.data = [None] * size   # 고정 크기 배열
+        self.length = 0             # 실제 저장된 원소 개수
+
+    # 접근
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError("Index out of range")
+        return self.data[index]
+
+    # 탐색
+    def search(self, value):
+        for i in range(self.length):
+            if self.data[i] == value:
+                return i
+        return -1
+
+    # 추가
+    def append(self, value):
+        if self.length >= self.size:
+            raise OverflowError("Array is full")
+        self.data[self.length] = value
+        self.length += 1
+
+    # 삭제
+    def delete(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError("Index out of range")
+
+        for i in range(index, self.length - 1):
+            self.data[i] = self.data[i + 1]
+
+        self.data[self.length - 1] = None
+        self.length -= 1
+        </code></pre>
+        
+        <!--접근-->
+        <h3><br>접근</h3>
+
+        <pre><code class="language-python">
+def get(self, index):
+    if index < 0 or index >= self.length:         # 인덱스가 배열 크기에서 벗어나지 않는지 확인
+        raise IndexError("Index out of range")    # 인덱스가 넘어간다면 에러
+    return self.data[index]                       # 인덱스에 존재하는 값 반환
+        </code></pre>
+        
+        <p>
+            접근 연산은 인덱스를 이용해 원하는 위치의 <strong>값을 가져오는</strong> 연산입니다.<br>
+            앞서 설명했듯이 인덱스를 이용하면 한 번의 계산으로 위치를 찾을 수 있어
+            시간 복잡도는 <strong>O(1)</strong>입니다.
+        </p>
+        
+        <!--탐색-->
+        <h3><br>탐색</h3>
+
+        <pre><code class="language-python">
+def search(self, value):
+    for i in range(self.length):       # 배열의 길이만큼 반복
+        if self.data[i] == value:      # i번째 요소가 찾고있는 값과 동일한 지 확인
+            return i                   # 동일하다면 i를 반환
+    return -1                          # 배열 전체에서 동일한 값이 없으면 -1 반환
+        </code></pre>
+
+        <p>
+            탐색 연산은 배열 안에서 <strong>특정 값이 있는지</strong>를 확인하는 연산입니다.<br>
+            배열은 정렬되어 있지 않다면 앞에서부터 하나씩 비교해야 하므로
+            최악의 경우 모든 요소를 확인해야 합니다.<br>
+            따라서 시간 복잡도는 <strong>O(n)</strong>입니다.
+        </p>
+        
+        <!--추가-->
+        <h3><br>추가</h3>
+
+        <pre><code class="language-python">
+def append(self, value):
+    if self.length >= self.size:                 # 현재 길이가 최대 길이 이상인지 확인
+        raise OverflowError("Array is full")     # 배열이 가득찼다면 에러
+    self.data[self.length] = value               # 배열 오른쪽에 새로운 값 추가
+    self.length += 1                             # 현재 길이 +1 갱신
+        </code></pre>
+
+        <p>
+            배열의 <strong>맨 뒤에 값을 추가하는</strong> 연산입니다.<br>
+            빈 공간이 있다면 바로 추가할 수 있어 이 경우 시간 복잡도는 <strong>O(1)</strong>입니다.<br>
+            물론 배열이 가득 차 있다면 더 이상 추가할 수 없습니다.
+        </p>
+        
+        <img src="../assets/images/array-append1.png"
+            alt="배열 추가"
+            class="structure-img">
+
+        <img src="../assets/images/array-append2.png"
+            alt="배열 추가"
+            class="structure-img">
+
+        <p style="color:#6b7280; font-size:0.9rem">
+            빈 공간에 데이터를 집어넣는 '추가' → 시간 복잡도는 O(1)
+        </p>
+
+        <p>
+            <br>단순히 맨 뒤에 값을 추가하는 것이 아닌 <strong>특정한 위치에 삽입</strong>을 할 수도 있습니다.<br>
+            이때는 삽입하기 위해 뒤의 요소를 한 칸씩 뒤로 밀어야 하므로 시간 복잡도는 <strong>O(n)</strong>입니다.
+        </p>
+
+        <img src="../assets/images/array-insert1.png"
+            alt="배열 삽입"
+            class="structure-img">
+
+        <img src="../assets/images/array-insert2.png"
+            alt="배열 삽입"
+            class="structure-img">
+
+        <p style="color:#6b7280; font-size:0.9rem">
+            기존 데이터를 한 칸씩 밀어 새로운 데이터를 '삽입' → 시간 복잡도는 O(n)
+        </p>
+        
+        <!--삭제-->
+        <h3><br>삭제</h3>
+
+        <pre><code class="language-python">
+def delete(self, index):
+    if index < 0 or index >= self.length:          # 삭제할 인덱스가 배열의 인덱스에 포함되는지 확인
+        raise IndexError("Index out of range")     # 벗어났다면 에러
+
+    for i in range(index, self.length - 1):        # 삭제한 인덱스 번호부터 끝까지 반복
+        self.data[i] = self.data[i + 1]            # 한 칸씩 왼쪽으로 이동
+
+    self.data[self.length - 1] = None              # 옮겨진 마지막 칸을 빈칸으로 설정
+    self.length -= 1                               # 현재 길이 -1 갱신
+        </code></pre>
+
+        <p>
+            삭제 연산은 특정 인덱스의 <strong>값을 제거하는</strong> 연산입니다.<br>
+            삽입과 마찬가지로 삭제 후 빈 공간을 채우기 위해서 뒤에 있는 모든 요소를 한 칸씩 앞으로 이동시켜야 합니다.<br>
+            따라서 삭제 연산의 시간 복잡도는 <strong>O(n)</strong>입니다.<br>
+        </p>
+
+    </section>
+
+    <!-- 체험존 -->
+    <section id="experience">
+        <h2>체험존</h2>
+
+        <p style="color:#6b7280; font-size:0.9rem">
+            길이가 16인 배열
+        </p>
+
+        <div id="array-view" class="array-container"></div>
+
+        <input type="number" id="inputValue" placeholder="값을 입력">
+
+        <div class="buttons">
+            <button onclick="access()">접근</button>
+            <button onclick="insert()">추가</button>
+            <button onclick="removeAt()">삭제</button>
+            <button onclick="undo()">뒤로가기</button>
+        </div>
+
+        <div id="result"></div>
+    </section>
+
+<script type="module" src="../assets/js/arrayExperience.js"></script>
+
+</main>
+
+<script src="../assets/js/siteTree.js"></script>
+<script src="../assets/js/breadcrumb.js"></script>
+
+<script>
+    const pageId = document.body.dataset.pageId;
+    renderBreadcrumb(pageId);
+</script>
+
+</body>
+</html>
