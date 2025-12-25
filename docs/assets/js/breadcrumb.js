@@ -12,7 +12,7 @@ function renderBreadcrumb(targetId) {
   // 예: nonlinear/tree/binary-tree.html 에 있다면 깊이는 2 (../../ 두 번 필요)
   const currentPath = window.location.pathname;
   // GitHub Pages 저장소 이름(Data_Structure) 이후의 경로만 추출
-  const pathAfterRepo = currentPath.split("Data_Structure/")[1] || "";
+  const pathAfterRepo = currentPath.split("docs/")[1] || "";
   const depth = (pathAfterRepo.match(/\//g) || []).length;
   const prefix = "../".repeat(depth);
 
@@ -39,3 +39,4 @@ function renderBreadcrumb(targetId) {
     }
   });
 }
+
